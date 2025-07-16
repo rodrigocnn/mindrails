@@ -1,24 +1,50 @@
-# README
+# 🧠 MindRails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sistema para apoiar o trabalho de **profissionais de psicologia**.  
+Voltado exclusivamente para consultórios e clínicas de psicologia, respeitando a prática clínica, fluxo de trabalho real e privacidade.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## ✅ Funcionalidades previstas (MVP)
 
-* System dependencies
+- Cadastro de Pacientes
+- Agenda de compromissos e sessões
+- Registro de Atendimentos (sessões)
+- Módulo Financeiro (pagamentos por sessão)
+- Locais de Atendimento (ex: consultório próprio, clínicas)
+- Prontuário eletrônico (Anamnese, notas clínicas, anexos)
 
-* Configuration
+---
 
-* Database creation
+## 🛠️ Stack utilizada
 
-* Database initialization
+- Ruby on Rails 7
+- PostgreSQL
+- Hotwire (Turbo + Stimulus)
+- Tailwind CSS
+- Devise (autenticação)
+- ActiveStorage (uploads e anexos)
+- RSpec (futuramente, para testes)
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🚧 Planejamento por semanas (milestones)
 
-* Deployment instructions
+| Semana | Entrega Principal                                        |
+| ------ | -------------------------------------------------------- |
+| 0      | Configuração do projeto (Rails + Devise + Hotwire)       |
+| 1      | Modelos e relacionamentos básicos (até Anamnese)         |
+| 2      | Views, navegação, interações com Hotwire                 |
+| 3      | Funcionalidades avançadas, dashboard, UI com Stimulus    |
+| 4      | Finalização, revisão geral, testes, preparação para demo |
 
-* ...
+---
+
+## 🧱 Como rodar o projeto localmente
+
+### 1. Clone o projeto
+
+```bash
+git clone https://github.com/rodrigocnn/mindrails.git
+cd mindrails
+```
