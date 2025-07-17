@@ -1,6 +1,7 @@
-<li>
-  <%= link_to href, class: "py-4 p-4 text-white flex items-center gap-2 hover:bg-gray-700 border-b border-b-gray-700 w-full" do %>
-    <i class="text-xl <%= icon_class %>"></i>
+<li >
+  <%= link_to href, class: "py-4 p-4 text-white  text-sm flex items-center gap-2 hover:bg-gray-700 border-b border-b-gray-700 w-full" do %>
+   <%= heroicon icon , variant: :solid, options: { style: "width: 1rem; height: 1rem;", class: "text-white" } %>
     <%= label %>
   <% end %>
 </li>
+

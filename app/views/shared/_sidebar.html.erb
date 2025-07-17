@@ -5,13 +5,16 @@
 
   <nav class="mt-2">
     <ul>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/home', label: 'Home', icon_class: 'md-outline-dashboard' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/clientes', label: 'Pacientes', icon_class: 'fa-user-friends' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/proprietarios', label: 'Proprietários', icon_class: 'md-outline-house-siding' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/imoveis', label: 'Imóveis', icon_class: 'md-outline-real-estate-agent' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/contratos', label: 'Contratos', icon_class: 'hi-outline-document-text' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/pagamentos', label: 'Pagamentos', icon_class: 'bs-cash-stack' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/home', label: 'Home', icon: 'home' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/clientes', label: 'Pacientes', icon: 'user-plus'} %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/proprietarios', label: 'Agenda',icon: 'calendar' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/imoveis', label: 'Atendimentos', icon: 'pencil-square' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/contratos', label: 'Prontuário eletrônico', icon: 'home'} %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/pagamentos', label: 'Locais de Atendimento', icon: 'home' } %>
 
     </ul>
   </nav>
 </div>
+
+
+
