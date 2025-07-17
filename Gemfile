@@ -29,3 +29,4 @@ end
 
 gem "foreman"
 gem "tailwindcss-rails", "~> 4.3"
+gem "heroicon", "~> 1.0"
