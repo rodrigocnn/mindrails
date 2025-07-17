@@ -1,0 +1,17 @@
+<div class="w-64 bg-gray-800 text-white">
+  <div class="mt-6 h-16 pl-4">
+  
+  </div>
+
+  <nav class="mt-2">
+    <ul>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/home', label: 'Home', icon_class: 'md-outline-dashboard' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/clientes', label: 'Pacientes', icon_class: 'fa-user-friends' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/proprietarios', label: 'Proprietários', icon_class: 'md-outline-house-siding' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/imoveis', label: 'Imóveis', icon_class: 'md-outline-real-estate-agent' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/contratos', label: 'Contratos', icon_class: 'hi-outline-document-text' } %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/pagamentos', label: 'Pagamentos', icon_class: 'bs-cash-stack' } %>
+
+    </ul>
+  </nav>
+</div>
