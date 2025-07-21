@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   scope "/admin" do
-    get "dashboard", to: "dashboard#index"
+    get "dashboard", to: "dashboard#index" , as: :dashboard
     resources :pacientes
   end
 
 end
 
+#http://127.0.0.1:5000/users/sign_up
+#http://127.0.0.1:5000/users/sign_in
