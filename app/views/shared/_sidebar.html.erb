@@ -4,11 +4,26 @@
   <nav class="mt-0">
     <ul>
       <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/home', label: 'Home', icon: 'home' } %>
-      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/clientes', label: 'Pacientes', icon: 'user-plus'} %>
+      <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/pacientes', label: 'Pacientes', icon: 'user-plus'} %>
       <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/proprietarios', label: 'Agenda',icon: 'calendar' } %>
       <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/imoveis', label: 'Atendimentos', icon: 'pencil-square' } %>
       <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/contratos', label: 'Prontuário eletrônico', icon: 'home'} %>
       <%= render partial: 'shared/sidebar_item', locals: { href: '/admin/pagamentos', label: 'Locais de Atendimento', icon: 'home' } %>
+
+      <!-- Botão de logout -->
+
+
+        <li>
+          <%= button_to destroy_user_session_path,
+                        method: :delete,
+                        class: "w-full text-left py-4 p-4 text-white text-sm flex items-center gap-2 hover:bg-gray-700 border-b border-b-gray-700 bg-transparent border-0" do %>
+            <%= heroicon "arrow-left-on-rectangle", variant: :solid,
+                        options: { style: "width: 1rem; height: 1rem;", class: "text-white" } %>
+            Sair
+          <% end %>
+        </li>
+
+
 
     </ul>
   </nav>
