@@ -15,37 +15,37 @@
 
     <div class="mb-4">
       <%= form.label :nome %>
-      <%= form.text_field :nome, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:nome].none?, "border-red-400 focus:outline-red-600": paciente.errors[:nome].any?}] %>
+      <%= form.text_field :nome, disabled: @readonly, class: ["block #{ 'bg-gray-200' if @readonly} shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:nome].none?, "border-red-400 focus:outline-red-600": paciente.errors[:nome].any?}] %>
     </div>
 
     <div class="flex gap-4 mb-4">
         <div class="w-full">
           <%= form.label :email %>
-          <%= form.text_field :email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:email].none?, "border-red-400 focus:outline-red-600": paciente.errors[:email].any?}] %>
+          <%= form.text_field :email, disabled: @readonly,  class: ["block  #{ 'bg-gray-200' if @readonly}  shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:email].none?, "border-red-400 focus:outline-red-600": paciente.errors[:email].any?}] %>
         </div>
 
         <div class="w-full">
           <%= form.label :data_nascimento %>
-          <%= form.date_field :data_nascimento, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:data_nascimento].none?, "border-red-400 focus:outline-red-600": paciente.errors[:data_nascimento].any?}] %>
+          <%= form.date_field :data_nascimento, disabled: @readonly, class: ["block  #{ 'bg-gray-200' if @readonly} shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:data_nascimento].none?, "border-red-400 focus:outline-red-600": paciente.errors[:data_nascimento].any?}] %>
         </div>
     </div>
 
     <div class="flex gap-4 mb-4">
         <div class="w-full">
           <%= form.label  :cpf, "CPF" %>
-          <%= form.text_field :cpf, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:cpf].none?, "border-red-400 focus:outline-red-600": paciente.errors[:cpf].any?}] %>
+          <%= form.text_field :cpf, disabled: @readonly, class: ["block  #{ 'bg-gray-200' if @readonly} shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:cpf].none?, "border-red-400 focus:outline-red-600": paciente.errors[:cpf].any?}] %>
         </div>
 
           <div class="w-full">
           <%= form.label :telefone %>
-          <%= form.text_field :telefone, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:telefone].none?, "border-red-400 focus:outline-red-600": paciente.errors[:telefone].any?}] %>
+          <%= form.text_field :telefone, disabled: @readonly, class: ["block  #{ 'bg-gray-200' if @readonly} shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": paciente.errors[:telefone].none?, "border-red-400 focus:outline-red-600": paciente.errors[:telefone].any?}] %>
         </div>
 
   </div>
 
 
     <div class="inline">
-      <%= form.submit  "Salvar",  class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+      <%= form.submit  "Salvar", disabled: @readonly,  class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
     </div>
   <% end %>
 
