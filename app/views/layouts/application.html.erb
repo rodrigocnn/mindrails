@@ -28,7 +28,9 @@
   
 
         <main class="flex-1 p-6 bg-slate-200">
-          <%= yield %>
+                <turbo-frame id="wrap-page">
+                  <%= yield %>
+                </turbo-frame>
         </main>
       </div>
     </div>
