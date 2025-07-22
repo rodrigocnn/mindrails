@@ -1,0 +1,58 @@
+
+<div class="bg-white p-4 rounded-sm">
+
+<%= form_with(model: local_de_atendimento, class: "contents") do |form| %>
+  <% if local_de_atendimento.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(local_de_atendimento.errors.count, "error") %> prohibited this local_de_atendimento from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% local_de_atendimento.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": local_de_atendimento.errors[:nome].none?, "border-red-400 focus:outline-red-600": local_de_atendimento.errors[:nome].any?}] %>
+  </div>
+
+  <div class="flex gap-4 mb-4">
+
+
+  <div class="w-full">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": local_de_atendimento.errors[:endereco].none?, "border-red-400 focus:outline-red-600": local_de_atendimento.errors[:endereco].any?}] %>
+  </div>
+
+
+  <div class="w-full">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": local_de_atendimento.errors[:bairro].none?, "border-red-400 focus:outline-red-600": local_de_atendimento.errors[:bairro].any?}] %>
+  </div>
+
+    </div>
+
+  <div class="flex gap-4 mb-4">
+
+
+  <div class="w-full">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": local_de_atendimento.errors[:cidade].none?, "border-red-400 focus:outline-red-600": local_de_atendimento.errors[:cidade].any?}] %>
+  </div>
+
+  <div class="w-full">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": local_de_atendimento.errors[:estado].none?, "border-red-400 focus:outline-red-600": local_de_atendimento.errors[:estado].any?}] %>
+  </div>
+
+    </div>
+
+  <div class="inline">
+    <%= form.submit "Salvar" , class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
+
+  </div>

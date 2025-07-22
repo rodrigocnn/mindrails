@@ -1,0 +1,2 @@
+class LocalDeAtendimento < ApplicationRecord
+end
