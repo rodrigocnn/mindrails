@@ -1,72 +1,52 @@
 class PacientesController < ApplicationController
-  before_action :set_paciente, only: %i[ show edit update destroy ]
+  before_action :set_paciente, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
-  # GET /pacientes or /pacientes.json
   def index
     @pacientes = Paciente.all
   end
 
-  # GET /pacientes/1 or /pacientes/1.json
   def show
     @readonly = true
   end
 
-  # GET /pacientes/new
   def new
     @paciente = Paciente.new
   end
 
-  # GET /pacientes/1/edit
   def edit
   end
 
-  # POST /pacientes or /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
 
-    respond_to do |format|
-      if @paciente.save
-        format.html { redirect_to @paciente, notice: "Paciente was successfully created." }
-        format.json { render :show, status: :created, location: @paciente }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @paciente.errors, status: :unprocessable_entity }
-      end
+    if @paciente.save
+      redirect_to pacientes_path, notice: "Paciente was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /pacientes/1 or /pacientes/1.json
   def update
-    respond_to do |format|
-      if @paciente.update(paciente_params)
-        format.html { redirect_to @paciente, notice: "Paciente was successfully updated." }
-        format.json { render :show, status: :ok, location: @paciente }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @paciente.errors, status: :unprocessable_entity }
-      end
+    if @paciente.update(paciente_params)
+      redirect_to pacientes_path, notice: "Paciente was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /pacientes/1 or /pacientes/1.json
   def destroy
     @paciente.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to pacientes_path, status: :see_other, notice: "Paciente was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to pacientes_path, status: :see_other, notice: "Paciente was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paciente
-      @paciente = Paciente.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def paciente_params
-      params.require(:paciente).permit(:nome, :data_nascimento, :email, :telefone, :cpf)
-    end
+  def set_paciente
+    @paciente = Paciente.find(params[:id])
+  end
+
+  def paciente_params
+    params.require(:paciente).permit(:nome, :data_nascimento, :email, :telefone, :cpf)
+  end
 end
