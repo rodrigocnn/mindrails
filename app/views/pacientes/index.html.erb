@@ -1,3 +1,8 @@
+
+<% if turbo_frame_request? %>
+  <turbo-frame id="wrap-page">
+<% end %>
+
 <% content_for :title, "Pacientes" %>
 
 
@@ -45,3 +50,14 @@
     </tbody>
   </table>
 </div>
+
+
+<% if turbo_frame_request? %>
+  </turbo-frame>
+<% end %>
+
+
+
+
+
+

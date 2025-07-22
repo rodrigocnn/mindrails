@@ -1,8 +1,16 @@
-<div class=" pb-0 mb-4">
-  <h2 class="text-gray-700 hover:text-gray-900 text-black mb-4 text-2xl font-medium">Visualizar Paciente</h2>
-</div>
+<% if turbo_frame_request? %>
+  <turbo-frame id="wrap-page">
+<% end %>
+
+    <div class=" pb-0 mb-4">
+      <h2 class="text-gray-700 hover:text-gray-900 text-black mb-4 text-2xl font-medium">Visualizar Paciente</h2>
+    </div>
 
 
-<div class="w-full"> 
-  <%= render "form", paciente: @paciente %>
-</div>
+    <div class="w-full"> 
+      <%= render "form", paciente: @paciente %>
+    </div>
+
+<% if turbo_frame_request? %>
+  </turbo-frame>
+<% end %>
