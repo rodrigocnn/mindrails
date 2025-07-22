@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+ 
   
   Rails.application.routes.draw do
+  resources :local_de_atendimentos
     devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   scope "/admin" do
     get "dashboard", to: "dashboard#index" , as: :dashboard
     resources :pacientes
+     resources :local_de_atendimentos
   end
 
 end
