@@ -6,49 +6,19 @@
 <% content_for :title, "Pacientes" %>
 
 
-<div class=" pb-0 mb-4">
- <h2 class="text-gray-700 hover:text-gray-900 text-black mb-4 text-2xl font-medium"> Pacientes</h2>
+<div class=" pb-0 mb-4 flex justify-between">
+<h2 class="title-page"> Pacientes</h2>
+
+  <div class="pb-0 mb-4">
+    <%= link_to new_paciente_path, class: "btn-plus" do %>
+    <%= heroicon("plus", options: { class: "w-5 h-5 mr-2" }, variant: :solid) %>
+      Novo Paciente
+    <% end %>
+  </div>
 </div>
 
 <div class="bg-white p-4 rounded-sm">
-
-<div class=" pb-0 mb-4">
-  <%= link_to "Novo Paciente", new_paciente_path, class: "w-full sm:w-auto rounded-md px-3.5 
-  py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-</div>
-
-  <table class="table-auto w-full border-collapse">
-    <thead>
-      <tr class="border-b border-gray-200 text-left">
-        <th class="px-4 py-2 text-left">Nome</th>
-        <th class="px-4 py-2 text-left">Email</th>
-        <th class="px-4 py-2 text-left">Telefone</th>
-        <th class="px-4 py-2 text-left">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @pacientes.any? %>
-        <% @pacientes.each do |paciente| %>
-          <tr class="border-b border-gray-100">
-            <td class="px-4 py-2"><%= paciente.nome %></td>
-            <td class="px-4 py-2"><%= paciente.email %></td>
-            <td class="px-4 py-2"><%= paciente.telefone %></td>
-            <td class="px-4 py-2">
-              <div class="flex gap-2">
-                <%= link_to "Visualizar", paciente, class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-                <%= link_to "Editar", edit_paciente_path(paciente), class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-                <%= button_to "Excluir", paciente, method: :delete, class: "rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Tem certeza que deseja excluir?" } %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      <% else %>
-        <tr>
-          <td colspan="4" class="text-center py-4">Nenhum paciente encontrado.</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div data-controller="pacientes--grid" class="my-8"></div>
 </div>
 
 
