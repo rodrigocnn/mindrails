@@ -1,27 +1,79 @@
-<%= form_with(model: atendimento, class: "contents") do |form| %>
-  <% if atendimento.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(atendimento.errors.count, "error") %> prohibited this atendimento from being saved:</h2>
+<div class="bg-white p-4 rounded-sm">
 
-      <ul class="list-disc ml-6">
-        <% atendimento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: atendimento, class: "contents") do |form| %>
+    <% if atendimento.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+        <h2><%= pluralize(atendimento.errors.count, "erro") %> impediram o salvamento:</h2>
+        <ul class="list-disc ml-6">
+          <% atendimento.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- Paciente e Data da Sessão -->
+    <div class="flex gap-4 mb-4">
+      <div class="w-full">
+        <%= form.label :paciente_id, "Paciente" %>
+        <%= form.number_field :paciente_id, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full border-gray-300 focus:outline-blue-600" %>
+      </div>
+      <div class="w-full">
+        <%= form.label :data_sessao, "Data da Sessão" %>
+        <%= form.date_field :data_sessao, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full border-gray-300 focus:outline-blue-600" %>
+      </div>
+
+    <div class="w-full">
+        <%= form.label :tecnica_utilizada , "Técnica Utilizada" %>
+        <%= form.text_field :tecnica_utilizada, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+      </div>
+
+    </div>
+
+
+    <div class="my-5">
+      <%= form.label :hipoteses_diagnosticas, "Hipoteses diagnósticas" %>
+        <%= form.text_area :hipoteses_diagnosticas, rows: 2, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+    </div>
+
+    <!-- Resumo -->
+    <div class="my-5">
+      <%= form.label :resumo, "Resumo do que foi abordado" %>
+      <%= form.text_area :resumo, rows: 3, class: "block rounded-md border px-3 spy-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+    </div>
+
+    <!-- Observações, Intervenções e Reações -->
+    <div class="my-5">
+      <%= form.label :observacoes_comportamentai, "Observações comportamentais" %>
+      <%= form.text_area :observacoes_comportamentais, rows: 3, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :intervencoes_realizadas, "Intervenções realizadas" %>
+      <%= form.text_area :intervencoes_realizadas, rows: 3, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :reacoes_paciente, "Reações do paciente" %>
+      <%= form.text_area :reacoes_paciente, rows: 3, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+    </div>
+
+    <!-- Encaminhamentos e Planos -->
+    <div class="flex gap-4 mb-4">
+      <div class="w-full">
+        <%= form.label :encaminhamentos %>
+        <%= form.text_area :encaminhamentos, rows: 2, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+      </div>
+      <div class="w-full">
+        <%= form.label :planos_terapeuticos %>
+        <%= form.text_area :planos_terapeuticos, rows: 2, class: "block rounded-md border px-3 py-2 mt-2 w-full border-gray-300 shadow-sm focus:outline-blue-600" %>
+      </div>
+    </div>
+
+    <!-- Botão de envio -->
+    <div class="inline">
+      <%= form.submit "Salvar", class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium cursor-pointer" %>
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :paciente_id %>
-    <%= form.text_field :paciente_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": atendimento.errors[:paciente_id].none?, "border-red-400 focus:outline-red-600": atendimento.errors[:paciente_id].any?}] %>
   </div>
-
-  <div class="my-5">
-    <%= form.label :data_sessao %>
-    <%= form.date_field :data_sessao, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": atendimento.errors[:data_sessao].none?, "border-red-400 focus:outline-red-600": atendimento.errors[:data_sessao].any?}] %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-  </div>
-<% end %>

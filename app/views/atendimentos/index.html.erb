@@ -1,29 +1,53 @@
+<% if turbo_frame_request? %>
+  <turbo-frame id="wrap-page">
+<% end %>
+
 <% content_for :title, "Atendimentos" %>
 
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Atendimentos</h1>
-    <%= link_to "New atendimento", new_atendimento_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
-  </div>
-
-  <div id="atendimentos" class="min-w-full divide-y divide-gray-200 space-y-5">
-    <% if @atendimentos.any? %>
-      <% @atendimentos.each do |atendimento| %>
-        <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">
-          <%= render atendimento %>
-          <div class="w-full sm:w-auto flex flex-col sm:flex-row space-x-2 space-y-2">
-            <%= link_to "Show", atendimento, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= link_to "Edit", edit_atendimento_path(atendimento), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= button_to "Destroy", atendimento, method: :delete, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <p class="text-center my-10">No atendimentos found.</p>
-    <% end %>
-  </div>
+<div class="pb-0 mb-4">
+  <h2 class="title-page">Atendimentos</h2>
 </div>
+
+<div class="bg-white p-4 rounded-sm">
+  <div class="pb-0 mb-4">
+    <%= link_to "Novo Atendimento", new_atendimento_path, class: "w-full sm:w-auto rounded-md px-3.5 
+    py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+
+  <table class="table-auto w-full border-collapse">
+    <thead>
+      <tr class="border-b border-gray-200 text-left">
+        <th class="px-4 py-2">Data da Sessão</th>
+        <th class="px-4 py-2">Paciente</th>
+        <th class="px-4 py-2">Técnica</th>
+        <th class="px-4 py-2">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @atendimentos.any? %>
+        <% @atendimentos.each do |atendimento| %>
+          <tr class="border-b border-gray-100">
+            <td class="px-4 py-2"><%= atendimento.data_sessao.strftime("%d/%m/%Y") if atendimento.data_sessao %></td>
+            <td class="px-4 py-2"><%= atendimento.paciente.nome %></td>
+            <td class="px-4 py-2"><%= atendimento.tecnica_utilizada %></td>
+            <td class="px-4 py-2">
+              <div class="flex gap-2">
+                <%= link_to "Visualizar", atendimento_path(atendimento), class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+                <%= link_to "Editar", edit_atendimento_path(atendimento), class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+                <%= button_to "Excluir", atendimento_path(atendimento), method: :delete, class: "rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Tem certeza que deseja excluir?" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4" class="text-center py-4">Nenhum atendimento encontrado.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if turbo_frame_request? %>
+  </turbo-frame>
+<% end %>

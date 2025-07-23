@@ -1,10 +1,17 @@
-<% content_for :title, "Editing atendimento" %>
 
-<div class="md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing atendimento</h1>
+<% if turbo_frame_request? %>
+  <turbo-frame id="wrap-page">
+<% end %>
 
-  <%= render "form", atendimento: @atendimento %>
+    <div class=" pb-0 mb-4">
+      <h2 class="text-gray-700 hover:text-gray-900 text-black mb-4 text-2xl font-medium">Editar Atendimento</h2>
+    </div>
 
-  <%= link_to "Show this atendimento", @atendimento, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= link_to "Back to atendimentos", atendimentos_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-</div>
+    <div class="w-full">
+      <%= render "form", atendimento: @atendimento %>
+    </div>
+
+
+<% if turbo_frame_request? %>
+  </turbo-frame>
+<% end %>
