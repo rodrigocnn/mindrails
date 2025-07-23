@@ -3,7 +3,12 @@ class LocalDeAtendimentosController < ApplicationController
 
   def index
     @local_de_atendimentos = LocalDeAtendimento.all
+    respond_to do |format|
+      format.html 
+      format.json { render json:  @local_de_atendimentos.as_json(only: [:id, :nome, :cidade]) }
+    end
   end
+
 
   def show
   end
