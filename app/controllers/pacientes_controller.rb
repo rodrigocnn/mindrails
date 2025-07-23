@@ -4,6 +4,11 @@ class PacientesController < ApplicationController
 
   def index
     @pacientes = Paciente.all
+    
+    respond_to do |format|
+    format.html # carrega a view normalmente
+    format.json { render json: @pacientes.as_json(only: [:id, :nome, :email, :telefone]) }
+  end
   end
 
   def show
